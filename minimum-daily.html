@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="el">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Κατώτατο ημερομίσθιο | Greek Payroll Studio</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body data-page="minimumDaily">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html"><span class="brand-mark">GP</span><span><strong>Greek Payroll
+            Studio</strong><span>Υπολογιστές μισθοδοσίας</span></span></a>
+      <nav class="nav-list" aria-label="Κύρια πλοήγηση">
+        <a class="nav-link" data-page="index" href="index.html"><span class="nav-icon">⌂</span> Πίνακας</a>
+        <a class="nav-link" data-page="salary" href="salary.html"><span class="nav-icon">€</span> Μικτά σε καθαρά</a>
+        <a class="nav-link" data-page="severance" href="severance.html"><span class="nav-icon">□</span> Αποζημίωση</a>
+        <a class="nav-link" data-page="gifts" href="gifts.html"><span class="nav-icon">◇</span> Δώρα & άδεια</a>
+        <a class="nav-link" data-page="overtime" href="overtime.html"><span class="nav-icon">◷</span> Προσαυξήσεις</a>
+        <a class="nav-link" data-page="leave" href="leave.html"><span class="nav-icon">✓</span> Κανονική άδεια</a>
+        <a class="nav-link is-new" data-page="minimumSalary" href="minimum.html"><span class="nav-icon">≡</span>
+          Κατώτατος μισθός</a>
+        <a class="nav-link is-new" data-page="minimumDaily" href="minimum-daily.html"><span class="nav-icon">▦</span>
+          Κατώτατο ημερομίσθιο</a>
+        <a class="nav-link is-new" data-page="sickness" href="sickness.html"><span class="nav-icon">✚</span>
+          Ασθένεια</a>
+      </nav>
+      <p class="sidebar-note">Τα κατώτατα όρια πλήρους απασχόλησης ισχύουν από 1/4/2026.</p>
+    </aside>
+    <main class="content">
+      <p class="eyebrow">ΕΓΣΣΕ / Ημερομίσθιοι</p>
+      <h1>Κατώτατο ημερομίσθιο εργατοτεχνιτών</h1>
+      <p class="page-copy">Υπολόγισε το κατώτατο ημερομίσθιο με έως 6 τριετίες, επίδομα γάμου, πληρωτέες ημέρες και
+        πλήρη δώρα με βάση ημερομίσθια.</p>
+      <section class="calculator-layout">
+        <form class="panel" id="calculatorForm" data-calculator="minimumDaily">
+          <h2>Στοιχεία ημερομισθίου</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label for="triennials">Τριετίες προϋπηρεσίας</label>
+              <select id="triennials">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </div>
+            <div class="field"><label for="weeklyHours">Συμβατικές ώρες / εβδομάδα</label><input id="weeklyHours"
+                type="number" min="0" max="40" step="0.5" value="40"></div>
+            <div class="field"><label for="weeklyDays">Ημέρες εργασίας / εβδομάδα</label><input id="weeklyDays"
+                type="number" min="0" max="6" step="0.5" value="6"></div>
+            <div class="field"><label for="paidDaysMonth">Πληρωτέες ημέρες / μήνα</label><input id="paidDaysMonth"
+                type="number" min="0" max="31" step="0.5" value="26"><span class="hint">Για εκτίμηση μηνιαίων αποδοχών,
+                χωρίς μετατροπή σε μισθό.</span></div>
+            <div class="field full">
+              <label class="check-field" for="marriageAllowance">
+                <input id="marriageAllowance" type="checkbox">
+                <span><strong>Επίδομα γάμου 10%</strong><br>Προσθήκη έξτρα προσαύξησης στο κατώτατο ημερομίσθιο.</span>
+              </label>
+            </div>
+          </div>
+          <div class="actions"><button type="submit">Υπολογισμός</button><button class="secondary"
+              type="reset">Επαναφορά</button></div>
+        </form>
+        <aside class="panel">
+          <h2>Αποτελέσματα</h2>
+          <div class="result-stack" id="results"></div>
+          <div class="table-wrap history-table-wrap">
+            <table class="history-table history-table-daily">
+              <thead>
+                <tr>
+                  <th>Ισχύς από</th>
+                  <th>Ημερομίσθιο</th>
+                  <th>Σημείωση</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1/1/2012</td>
+                  <td>33,57 €</td>
+                  <td>ΕΓΣΣΕ πριν τη μείωση του 2012</td>
+                </tr>
+                <tr>
+                  <td>1/3/2012</td>
+                  <td>26,18 €</td>
+                  <td>Νόμιμο κατώτατο για εργαζόμενους 25+</td>
+                </tr>
+                <tr>
+                  <td>2013-2018</td>
+                  <td>26,18 €</td>
+                  <td>Χωρίς νέα αύξηση στην περίοδο</td>
+                </tr>
+                <tr>
+                  <td>1/2/2019</td>
+                  <td>29,04 €</td>
+                  <td>Κατάργηση υποκατώτατου κάτω των 25</td>
+                </tr>
+                <tr>
+                  <td>1/1/2022</td>
+                  <td>29,62 €</td>
+                  <td>Υ.Α. 107675/27.12.2021</td>
+                </tr>
+                <tr>
+                  <td>1/5/2022</td>
+                  <td>31,85 €</td>
+                  <td>Υ.Α. 38866/21.4.2022</td>
+                </tr>
+                <tr>
+                  <td>1/4/2023</td>
+                  <td>34,84 €</td>
+                  <td>Υ.Α. 31986/24.3.2023</td>
+                </tr>
+                <tr>
+                  <td>1/4/2024</td>
+                  <td>37,07 €</td>
+                  <td>Υ.Α. 25058/29.3.2024</td>
+                </tr>
+                <tr>
+                  <td>1/4/2025</td>
+                  <td>39,30 €</td>
+                  <td>Υ.Α. 8233/27.3.2025</td>
+                </tr>
+                <tr>
+                  <td>1/4/2026</td>
+                  <td>41,09 €</td>
+                  <td>Υ.Α. 8934/27.3.2026</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="source-box">Πηγές: Υπουργείο Εργασίας για τις τιμές 2019-2026, ν. 4093/2012 για τα ποσά 586,08 € /
+            26,18 €. Στην περίοδο 2012-2019 υπήρχε και υποκατώτατο για κάτω των 25 ετών: 510,95 € / 22,83 €.</p>
+        </aside>
+      </section>
+    </main>
+  </div>
+  <script src="assets/app.js"></script>
+</body>
+
+</html>

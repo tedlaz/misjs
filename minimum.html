@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="el">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Κατώτατος μισθός | Greek Payroll Studio</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body data-page="minimumSalary">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html"><span class="brand-mark">GP</span><span><strong>Greek Payroll
+            Studio</strong><span>Υπολογιστές μισθοδοσίας</span></span></a>
+      <nav class="nav-list" aria-label="Κύρια πλοήγηση">
+        <a class="nav-link" data-page="index" href="index.html"><span class="nav-icon">⌂</span> Πίνακας</a>
+        <a class="nav-link" data-page="salary" href="salary.html"><span class="nav-icon">€</span> Μικτά σε καθαρά</a>
+        <a class="nav-link" data-page="severance" href="severance.html"><span class="nav-icon">□</span> Αποζημίωση</a>
+        <a class="nav-link" data-page="gifts" href="gifts.html"><span class="nav-icon">◇</span> Δώρα & άδεια</a>
+        <a class="nav-link" data-page="overtime" href="overtime.html"><span class="nav-icon">◷</span> Προσαυξήσεις</a>
+        <a class="nav-link" data-page="leave" href="leave.html"><span class="nav-icon">✓</span> Κανονική άδεια</a>
+        <a class="nav-link is-new" data-page="minimumSalary" href="minimum.html"><span class="nav-icon">≡</span>
+          Κατώτατος μισθός</a>
+        <a class="nav-link is-new" data-page="minimumDaily" href="minimum-daily.html"><span class="nav-icon">▦</span>
+          Κατώτατο ημερομίσθιο</a>
+        <a class="nav-link is-new" data-page="sickness" href="sickness.html"><span class="nav-icon">✚</span>
+          Ασθένεια</a>
+      </nav>
+      <p class="sidebar-note">Τα κατώτατα όρια πλήρους απασχόλησης ισχύουν από 1/4/2026.</p>
+    </aside>
+    <main class="content">
+      <p class="eyebrow">ΕΓΣΣΕ / Μισθωτοί</p>
+      <h1>Κατώτατος μισθός μισθωτών</h1>
+      <p class="page-copy">Υπολόγισε τον κατώτατο μηνιαίο μισθό με τριετίες, επίδομα γάμου, αναλογία ωραρίου και τα
+        αντίστοιχα δώρα για μισθωτή σχέση εργασίας.</p>
+      <section class="calculator-layout">
+        <form class="panel" id="calculatorForm" data-calculator="minimumSalary">
+          <h2>Στοιχεία μισθωτού</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label for="triennials">Τριετίες προϋπηρεσίας</label>
+              <select id="triennials">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+            <div class="field"><label for="weeklyHours">Συμβατικές ώρες / εβδομάδα</label><input id="weeklyHours"
+                type="number" min="0" max="40" step="0.5" value="40"></div>
+            <div class="field full">
+              <label class="check-field" for="marriageAllowance">
+                <input id="marriageAllowance" type="checkbox">
+                <span><strong>Επίδομα γάμου 10%</strong><br>Προσθήκη έξτρα προσαύξησης στο κατώτατο ποσό.</span>
+              </label>
+            </div>
+          </div>
+          <div class="actions"><button type="submit">Υπολογισμός</button><button class="secondary"
+              type="reset">Επαναφορά</button></div>
+        </form>
+        <aside class="panel">
+          <h2>Αποτελέσματα</h2>
+          <div class="result-stack" id="results"></div>
+          <p class="source-box">Για ημερομίσθιους υπάρχει χωριστή σελίδα, επειδή οι τριετίες, τα πλήρη δώρα και η
+            μηνιαία αναγωγή ακολουθούν διαφορετική λογική από τον μηνιαίο μισθό.</p>
+          <div class="table-wrap history-table-wrap">
+            <table class="history-table history-table-salary">
+              <thead>
+                <tr>
+                  <th>Ισχύς από</th>
+                  <th>Μισθός</th>
+                  <th>Σημείωση</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1/1/2012</td>
+                  <td>751,39 €</td>
+                  <td>ΕΓΣΣΕ πριν τη μείωση του 2012</td>
+                </tr>
+                <tr>
+                  <td>1/3/2012</td>
+                  <td>586,08 €</td>
+                  <td>Νόμιμο κατώτατο για εργαζόμενους 25+</td>
+                </tr>
+                <tr>
+                  <td>2013-2018</td>
+                  <td>586,08 €</td>
+                  <td>Χωρίς νέα αύξηση στην περίοδο</td>
+                </tr>
+                <tr>
+                  <td>1/2/2019</td>
+                  <td>650,00 €</td>
+                  <td>Κατάργηση υποκατώτατου κάτω των 25</td>
+                </tr>
+                <tr>
+                  <td>1/1/2022</td>
+                  <td>663,00 €</td>
+                  <td>Υ.Α. 107675/27.12.2021</td>
+                </tr>
+                <tr>
+                  <td>1/5/2022</td>
+                  <td>713,00 €</td>
+                  <td>Υ.Α. 38866/21.4.2022</td>
+                </tr>
+                <tr>
+                  <td>1/4/2023</td>
+                  <td>780,00 €</td>
+                  <td>Υ.Α. 31986/24.3.2023</td>
+                </tr>
+                <tr>
+                  <td>1/4/2024</td>
+                  <td>830,00 €</td>
+                  <td>Υ.Α. 25058/29.3.2024</td>
+                </tr>
+                <tr>
+                  <td>1/4/2025</td>
+                  <td>880,00 €</td>
+                  <td>Υ.Α. 8233/27.3.2025</td>
+                </tr>
+                <tr>
+                  <td>1/4/2026</td>
+                  <td>920,00 €</td>
+                  <td>Υ.Α. 8934/27.3.2026</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="source-box">Πηγές: Υπουργείο Εργασίας για τις τιμές 2019-2026, ν. 4093/2012 για τα ποσά 586,08 € /
+            26,18 €. Στην περίοδο 2012-2019 υπήρχε και υποκατώτατο για κάτω των 25 ετών: 510,95 € / 22,83 €.</p>
+        </aside>
+      </section>
+    </main>
+  </div>
+  <script src="assets/app.js"></script>
+</body>
+
+</html>

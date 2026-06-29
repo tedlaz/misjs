@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="el">
+  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Αποζημίωση | Greek Payroll Studio</title><link rel="stylesheet" href="assets/styles.css"></head>
+  <body data-page="severance">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="index.html"><span class="brand-mark">GP</span><span><strong>Greek Payroll Studio</strong><span>Υπολογιστές μισθοδοσίας</span></span></a>
+        <nav class="nav-list" aria-label="Κύρια πλοήγηση">
+          <a class="nav-link" data-page="index" href="index.html"><span class="nav-icon">⌂</span> Πίνακας</a><a class="nav-link" data-page="salary" href="salary.html"><span class="nav-icon">€</span> Μικτά σε καθαρά</a><a class="nav-link" data-page="severance" href="severance.html"><span class="nav-icon">□</span> Αποζημίωση</a><a class="nav-link" data-page="gifts" href="gifts.html"><span class="nav-icon">◇</span> Δώρα & άδεια</a><a class="nav-link" data-page="overtime" href="overtime.html"><span class="nav-icon">◷</span> Προσαυξήσεις</a><a class="nav-link" data-page="leave" href="leave.html"><span class="nav-icon">✓</span> Κανονική άδεια</a><a class="nav-link is-new" data-page="minimumSalary" href="minimum.html"><span class="nav-icon">≡</span> Κατώτατος μισθός</a>
+          <a class="nav-link is-new" data-page="minimumDaily" href="minimum-daily.html"><span class="nav-icon">▦</span> Κατώτατο ημερομίσθιο</a><a class="nav-link is-new" data-page="sickness" href="sickness.html"><span class="nav-icon">✚</span> Ασθένεια</a>
+        </nav>
+        <p class="sidebar-note">Η αποζημίωση έχει πολλές ειδικές περιπτώσεις. Αυτός είναι βασικός γρήγορος υπολογιστής.</p>
+      </aside>
+      <main class="content">
+        <p class="eyebrow">Λύση σύμβασης</p>
+        <h1>Αποζημίωση απόλυσης</h1>
+        <p class="page-copy">Υπολογισμός σύμφωνα με τη λογική του πίνακα μετά τον ν. 4093/2012: βασική αποζημίωση, προειδοποίηση/σύνταξη και επιπλέον κομμάτι Νοεμβρίου 2012.</p>
+        <section class="calculator-layout">
+          <form class="panel" id="calculatorForm" data-calculator="severance">
+            <h2>Στοιχεία εργαζομένου</h2>
+            <div class="form-grid">
+              <div class="field"><label for="gross">Μικτός μηνιαίος μισθός</label><input id="gross" type="number" min="0" step="0.01" value="1400"></div>
+              <div class="field"><label for="years">Έτη στον ίδιο εργοδότη</label><input id="years" type="number" min="0" step="0.1" value="8"></div>
+              <div class="field"><label for="yearsAt2012">Έτη τον Νοέμβριο 2012</label><input id="yearsAt2012" type="number" min="0" step="0.1" value="0"><span class="hint">Συμπλήρωσε μόνο αν υπήρχε υπηρεσία στον ίδιο εργοδότη τότε.</span></div>
+              <div class="field"><label for="status">Περίπτωση</label><select id="status"><option value="normal">Χωρίς προειδοποίηση</option><option value="notice">Με προειδοποίηση</option><option value="pension">Πλήρης σύνταξη</option></select></div>
+              <div class="field"><label>Προσαύξηση τακτικών αποδοχών</label><input value="+1/6 ενσωματωμένο" disabled><span class="hint">Όπως στον πίνακα, τα δώρα και το επίδομα άδειας ενσωματώνονται στις τακτικές αποδοχές.</span></div>
+            </div>
+            <div class="actions"><button type="submit">Υπολογισμός</button><button class="secondary" type="reset">Επαναφορά</button></div>
+          </form>
+          <aside class="panel">
+            <h2>Αποτελέσματα</h2>
+            <div class="result-stack" id="results"></div>
+            <div class="table-wrap">
+              <table><thead><tr><th>Έτη</th><th>Χωρίς προειδοποίηση</th><th>Μήνες προειδοποίησης</th><th>Με προειδοποίηση</th></tr></thead><tbody><tr><td>0-1</td><td>0</td><td>0</td><td>0</td></tr><tr><td>1-2</td><td>2 μισθοί</td><td>1 μήνας</td><td>1 μισθός</td></tr><tr><td>2-4</td><td>2 μισθοί</td><td>2 μήνες</td><td>1 μισθός</td></tr><tr><td>4-5</td><td>3 μισθοί</td><td>2 μήνες</td><td>1,5 μισθοί</td></tr><tr><td>5-6</td><td>3 μισθοί</td><td>3 μήνες</td><td>1,5 μισθοί</td></tr><tr><td>6-8</td><td>4 μισθοί</td><td>3 μήνες</td><td>2 μισθοί</td></tr><tr><td>8-10</td><td>5 μισθοί</td><td>3 μήνες</td><td>2,5 μισθοί</td></tr><tr><td>10-11</td><td>6 μισθοί</td><td>4 μήνες</td><td>3 μισθοί</td></tr><tr><td>11-12</td><td>7 μισθοί</td><td>4 μήνες</td><td>3,5 μισθοί</td></tr><tr><td>12-13</td><td>8 μισθοί</td><td>4 μήνες</td><td>4 μισθοί</td></tr><tr><td>13-14</td><td>9 μισθοί</td><td>4 μήνες</td><td>4,5 μισθοί</td></tr><tr><td>14-15</td><td>10 μισθοί</td><td>4 μήνες</td><td>5 μισθοί</td></tr><tr><td>15-16</td><td>11 μισθοί</td><td>4 μήνες</td><td>5,5 μισθοί</td></tr><tr><td>16+</td><td>12 μισθοί</td><td>4 μήνες</td><td>6 μισθοί</td></tr></tbody></table>
+            </div>
+            <p class="source-box">Για υπηρεσία Νοεμβρίου 2012 από 17 έτη και πάνω, προστίθεται επιπλέον αποζημίωση 1-12 μισθών. Με προειδοποίηση εφαρμόζονται 1, 2, 3 ή 4 μήνες ανάλογα με την υπηρεσία: 1-2, 2-5, 5-10 ή 10+ έτη. Το βασικό κομμάτι έχει πλαφόν μικτού μισθού 5.385,60 ευρώ, ενώ το επιπλέον κομμάτι έχει πλαφόν 1.714,286 ευρώ, δηλαδή 2.000 ευρώ μετά το 14/12.</p>
+          </aside>
+        </section>
+      </main>
+    </div>
+    <script src="assets/app.js"></script>
+  </body>
+</html>
