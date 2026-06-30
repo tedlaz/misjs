@@ -1,86 +1,93 @@
 <!doctype html>
 <html lang="el">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Greek Payroll Studio</title>
-    <link rel="stylesheet" href="assets/styles.css">
-  </head>
-  <body data-page="index">
-    <div class="app-shell">
-      <aside class="sidebar">
-        <a class="brand" href="index.html">
-          <span class="brand-mark">GP</span>
-          <span><strong>Greek Payroll Studio</strong><span>Υπολογιστές μισθοδοσίας</span></span>
-        </a>
-        <nav class="nav-list" aria-label="Κύρια πλοήγηση">
-          <a class="nav-link" data-page="index" href="index.html"><span class="nav-icon">⌂</span> Πίνακας</a>
-          <a class="nav-link" data-page="salary" href="salary.html"><span class="nav-icon">€</span> Μικτά σε καθαρά</a>
-          <a class="nav-link" data-page="severance" href="severance.html"><span class="nav-icon">□</span> Αποζημίωση</a>
-          <a class="nav-link" data-page="gifts" href="gifts.html"><span class="nav-icon">◇</span> Δώρα & άδεια</a>
-          <a class="nav-link" data-page="overtime" href="overtime.html"><span class="nav-icon">◷</span> Προσαυξήσεις</a>
-          <a class="nav-link" data-page="leave" href="leave.html"><span class="nav-icon">✓</span> Κανονική άδεια</a>
-          <a class="nav-link is-new" data-page="minimumSalary" href="minimum.html"><span class="nav-icon">≡</span> Κατώτατος μισθός</a>
-          <a class="nav-link is-new" data-page="minimumDaily" href="minimum-daily.html"><span class="nav-icon">▦</span> Κατώτατο ημερομίσθιο</a>
-          <a class="nav-link is-new" data-page="sickness" href="sickness.html"><span class="nav-icon">✚</span> Ασθένεια</a>
-        </nav>
-        <p class="sidebar-note">Ενδεικτικοί υπολογισμοί για γρήγορο έλεγχο. Οι συντελεστές εμφανίζονται στη φόρμα ώστε να ενημερώνονται εύκολα.</p>
-      </aside>
-      <main class="content">
-        <div class="topbar">
-          <div>
-            <p class="eyebrow">Payroll calculators</p>
-            <h1>Ελληνική μισθοδοσία, οργανωμένη σε καθαρές φόρμες.</h1>
-            <p class="page-copy">Ένα γρήγορο, όμορφο HTML/CSS/JS project με ξεχωριστές σελίδες για καθαρό μισθό, αποζημίωση απόλυσης, δώρα, προσαυξήσεις και κανονική άδεια.</p>
-          </div>
-          <span class="pill">Έκδοση 2026 ready</span>
-        </div>
 
-        <section class="dashboard-grid" aria-label="Υπολογιστές">
-          <a class="tool-card" href="salary.html">
-            <h2>Μικτά σε καθαρά</h2>
-            <p>Φ.Μ.Υ., εισφορές εργαζομένου και συνολικό κόστος εργοδότη με παραμετρικούς συντελεστές.</p>
-            <span class="card-action">Άνοιγμα →</span>
-          </a>
-          <a class="tool-card" href="severance.html">
-            <h2>Αποζημίωση απόλυσης</h2>
-            <p>Βασικός πίνακας μηνών αποζημίωσης με επιλογές προειδοποίησης, σύνταξης και προσαύξησης 1/6.</p>
-            <span class="card-action">Άνοιγμα →</span>
-          </a>
-          <a class="tool-card" href="gifts.html">
-            <h2>Δώρα & επίδομα άδειας</h2>
-            <p>Υπολογισμός δώρου Χριστουγέννων, δώρου Πάσχα και επιδόματος άδειας ανά περίοδο.</p>
-            <span class="card-action">Άνοιγμα →</span>
-          </a>
-          <a class="tool-card" href="overtime.html">
-            <h2>Νύχτες, αργίες, υπερωρίες</h2>
-            <p>Ενδεικτικές προσαυξήσεις με ρυθμιζόμενα ποσοστά για διαφορετικά σενάρια εργασίας.</p>
-            <span class="card-action">Άνοιγμα →</span>
-          </a>
-          <a class="tool-card" href="leave.html">
-            <h2>Κανονική άδεια</h2>
-            <p>Ημέρες αδείας για πενθήμερη ή εξαήμερη εργασία, αναλογία μηνών και επίδομα άδειας.</p>
-            <span class="card-action">Άνοιγμα →</span>
-          </a>
-          <a class="tool-card" href="minimum.html">
-            <h2>Κατώτατος μισθός</h2>
-            <p>Μηνιαίος κατώτατος μισθός μισθωτών, έως 3 τριετίες, επίδομα γάμου, αναλογία ωραρίου και δώρα.</p>
-            <span class="card-action">Άνοιγμα →</span>
-          </a>
-          <a class="tool-card" href="minimum-daily.html">
-            <h2>Κατώτατο ημερομίσθιο</h2>
-            <p>Ημερομίσθιο εργατοτεχνιτών, έως 6 τριετίες, πληρωτέες ημέρες, ωρομίσθιο και πλήρη δώρα ημερομισθίου.</p>
-            <span class="card-action">Άνοιγμα →</span>
-          </a>
-          <a class="tool-card" href="sickness.html">
-            <h2>Αποδοχές ασθενείας</h2>
-            <p>Καταβολή εργοδότη, επίδομα ΕΦΚΑ, υπόλοιπο ετήσιου δικαιώματος και σύνολο αποδοχών.</p>
-            <span class="card-action">Άνοιγμα →</span>
-          </a>
-        </section>
-      </main>
-    </div>
-    <script src="assets/miscalc.js"></script>
-    <script src="assets/app.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Greek Payroll</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body data-page="index">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">GP</span>
+        <span><strong>Ελληνική Μισθοδοσία</strong><span>Προγράμματα</span></span>
+      </a>
+      <nav class="nav-list" aria-label="Κύρια πλοήγηση">
+        <a class="nav-link" data-page="index" href="index.html"><span class="nav-icon">⌂</span> Πίνακας</a>
+        <a class="nav-link" data-page="salary" href="salary.html"><span class="nav-icon">€</span> Μικτά σε καθαρά</a>
+        <a class="nav-link" data-page="severance" href="severance.html"><span class="nav-icon">□</span> Αποζημίωση</a>
+        <a class="nav-link" data-page="gifts" href="gifts.html"><span class="nav-icon">◇</span> Δώρα & άδεια</a>
+        <a class="nav-link" data-page="overtime" href="overtime.html"><span class="nav-icon">◷</span> Προσαυξήσεις</a>
+        <a class="nav-link" data-page="leave" href="leave.html"><span class="nav-icon">✓</span> Κανονική άδεια</a>
+        <a class="nav-link is-new" data-page="minimumSalary" href="minimum.html"><span class="nav-icon">≡</span>
+          Κατώτατος μισθός</a>
+        <a class="nav-link is-new" data-page="minimumDaily" href="minimum-daily.html"><span class="nav-icon">▦</span>
+          Κατώτατο ημερομίσθιο</a>
+        <a class="nav-link is-new" data-page="sickness" href="sickness.html"><span class="nav-icon">✚</span>
+          Ασθένεια</a>
+      </nav>
+      <p class="sidebar-note">Ενδεικτικοί υπολογισμοί για γρήγορο έλεγχο. Οι συντελεστές εμφανίζονται στη φόρμα ώστε να
+        ενημερώνονται εύκολα.</p>
+    </aside>
+    <main class="content">
+      <div class="topbar">
+        <div>
+          <p class="eyebrow">Payroll calculators</p>
+          <h1>Βοηθητικά εργαλεία για Ελληνική μισθοδοσία</h1>
+          <p class="page-copy">Φιλικό περιβάλλον για γρήγορους υπολογισμούς μισθοδοσίας.</p>
+        </div>
+        <span class="pill">Έκδοση 2026</span>
+      </div>
+
+      <section class="dashboard-grid" aria-label="Υπολογιστές">
+        <a class="tool-card" href="salary.html">
+          <h2>Μικτά σε καθαρά</h2>
+          <p>Φ.Μ.Υ., εισφορές εργαζομένου και συνολικό κόστος εργοδότη με παραμετρικούς συντελεστές.</p>
+          <span class="card-action">Άνοιγμα →</span>
+        </a>
+        <a class="tool-card" href="severance.html">
+          <h2>Αποζημίωση απόλυσης</h2>
+          <p>Βασικός πίνακας μηνών αποζημίωσης με επιλογές προειδοποίησης, σύνταξης και προσαύξησης 1/6.</p>
+          <span class="card-action">Άνοιγμα →</span>
+        </a>
+        <a class="tool-card" href="gifts.html">
+          <h2>Δώρα & επίδομα άδειας</h2>
+          <p>Υπολογισμός δώρου Χριστουγέννων, δώρου Πάσχα και επιδόματος άδειας ανά περίοδο.</p>
+          <span class="card-action">Άνοιγμα →</span>
+        </a>
+        <a class="tool-card" href="overtime.html">
+          <h2>Νύχτες, αργίες, υπερωρίες</h2>
+          <p>Ενδεικτικές προσαυξήσεις με ρυθμιζόμενα ποσοστά για διαφορετικά σενάρια εργασίας.</p>
+          <span class="card-action">Άνοιγμα →</span>
+        </a>
+        <a class="tool-card" href="leave.html">
+          <h2>Κανονική άδεια</h2>
+          <p>Ημέρες αδείας για πενθήμερη ή εξαήμερη εργασία, αναλογία μηνών και επίδομα άδειας.</p>
+          <span class="card-action">Άνοιγμα →</span>
+        </a>
+        <a class="tool-card" href="minimum.html">
+          <h2>Κατώτατος μισθός</h2>
+          <p>Μηνιαίος κατώτατος μισθός μισθωτών, έως 3 τριετίες, επίδομα γάμου, αναλογία ωραρίου και δώρα.</p>
+          <span class="card-action">Άνοιγμα →</span>
+        </a>
+        <a class="tool-card" href="minimum-daily.html">
+          <h2>Κατώτατο ημερομίσθιο</h2>
+          <p>Ημερομίσθιο εργατοτεχνιτών, έως 6 τριετίες, πληρωτέες ημέρες, ωρομίσθιο και πλήρη δώρα ημερομισθίου.</p>
+          <span class="card-action">Άνοιγμα →</span>
+        </a>
+        <a class="tool-card" href="sickness.html">
+          <h2>Αποδοχές ασθενείας</h2>
+          <p>Καταβολή εργοδότη, επίδομα ΕΦΚΑ, υπόλοιπο ετήσιου δικαιώματος και σύνολο αποδοχών.</p>
+          <span class="card-action">Άνοιγμα →</span>
+        </a>
+      </section>
+    </main>
+  </div>
+  <script src="assets/miscalc.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+
 </html>

@@ -1,34 +1,61 @@
 <!doctype html>
 <html lang="el">
-  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Προσαυξήσεις | Greek Payroll Studio</title><link rel="stylesheet" href="assets/styles.css"></head>
-  <body data-page="overtime">
-    <div class="app-shell">
-      <aside class="sidebar">
-        <a class="brand" href="index.html"><span class="brand-mark">GP</span><span><strong>Greek Payroll Studio</strong><span>Υπολογιστές μισθοδοσίας</span></span></a>
-        <nav class="nav-list" aria-label="Κύρια πλοήγηση">
-          <a class="nav-link" data-page="index" href="index.html"><span class="nav-icon">⌂</span> Πίνακας</a><a class="nav-link" data-page="salary" href="salary.html"><span class="nav-icon">€</span> Μικτά σε καθαρά</a><a class="nav-link" data-page="severance" href="severance.html"><span class="nav-icon">□</span> Αποζημίωση</a><a class="nav-link" data-page="gifts" href="gifts.html"><span class="nav-icon">◇</span> Δώρα & άδεια</a><a class="nav-link" data-page="overtime" href="overtime.html"><span class="nav-icon">◷</span> Προσαυξήσεις</a><a class="nav-link" data-page="leave" href="leave.html"><span class="nav-icon">✓</span> Κανονική άδεια</a><a class="nav-link is-new" data-page="minimumSalary" href="minimum.html"><span class="nav-icon">≡</span> Κατώτατος μισθός</a>
-          <a class="nav-link is-new" data-page="minimumDaily" href="minimum-daily.html"><span class="nav-icon">▦</span> Κατώτατο ημερομίσθιο</a><a class="nav-link is-new" data-page="sickness" href="sickness.html"><span class="nav-icon">✚</span> Ασθένεια</a>
-        </nav>
-        <p class="sidebar-note">Χρήσιμο για γρήγορα σενάρια βάρδιας ή ελέγχους μισθοδοσίας.</p>
-      </aside>
-      <main class="content">
-        <p class="eyebrow">Νύχτες / αργίες / υπερωρίες</p>
-        <h1>Προσαυξήσεις μισθού</h1>
-        <p class="page-copy">Υπολόγισε ωρομίσθιο και προσαυξήσεις για απλή εργασία, νύχτα, Κυριακή/Αργία και Αργία-νύχτα.</p>
-        <section class="calculator-layout">
-          <form class="panel" id="calculatorForm" data-calculator="overtime">
-            <h2>Στοιχεία μισθού</h2>
-            <div class="form-grid">
-              <div class="field"><label for="gross">Μικτός μηνιαίος μισθός</label><input id="gross" type="number" min="0" step="0.01" value="1100"></div>
-              <div class="field"><label for="regularHours">Συμβατικές ώρες / εβδομάδα</label><input id="regularHours" type="number" min="0" step="0.5" value="40"></div>
-            </div>
-            <div class="actions"><button type="submit">Υπολογισμός</button><button class="secondary" type="reset">Επαναφορά</button></div>
-          </form>
-          <aside class="panel"><h2>Πίνακας ωρομισθίων</h2><div class="result-stack" id="results"></div><p class="source-box">Προσαυξήσεις βάσει του αντίστοιχου πίνακα: νύχτα +25%, Κυριακή/Αργία +75%, Αργία-νύχτα +100%.</p></aside>
-        </section>
-      </main>
-    </div>
-    <script src="assets/miscalc.js"></script>
-    <script src="assets/app.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Προσαυξήσεις | Greek Payroll</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body data-page="overtime">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html"><span class="brand-mark">GP</span><span><strong>Ελληνική
+            Μισθοδοσία</strong><span>Προγράμματα</span></span></a>
+      <nav class="nav-list" aria-label="Κύρια πλοήγηση">
+        <a class="nav-link" data-page="index" href="index.html"><span class="nav-icon">⌂</span> Πίνακας</a><a
+          class="nav-link" data-page="salary" href="salary.html"><span class="nav-icon">€</span> Μικτά σε καθαρά</a><a
+          class="nav-link" data-page="severance" href="severance.html"><span class="nav-icon">□</span> Αποζημίωση</a><a
+          class="nav-link" data-page="gifts" href="gifts.html"><span class="nav-icon">◇</span> Δώρα & άδεια</a><a
+          class="nav-link" data-page="overtime" href="overtime.html"><span class="nav-icon">◷</span> Προσαυξήσεις</a><a
+          class="nav-link" data-page="leave" href="leave.html"><span class="nav-icon">✓</span> Κανονική άδεια</a><a
+          class="nav-link is-new" data-page="minimumSalary" href="minimum.html"><span class="nav-icon">≡</span>
+          Κατώτατος μισθός</a>
+        <a class="nav-link is-new" data-page="minimumDaily" href="minimum-daily.html"><span class="nav-icon">▦</span>
+          Κατώτατο ημερομίσθιο</a><a class="nav-link is-new" data-page="sickness" href="sickness.html"><span
+            class="nav-icon">✚</span> Ασθένεια</a>
+      </nav>
+      <p class="sidebar-note">Χρήσιμο για γρήγορα σενάρια βάρδιας ή ελέγχους μισθοδοσίας.</p>
+    </aside>
+    <main class="content">
+      <p class="eyebrow">Νύχτες / αργίες / υπερωρίες</p>
+      <h1>Προσαυξήσεις μισθού</h1>
+      <p class="page-copy">Υπολόγισε ωρομίσθιο και προσαυξήσεις για απλή εργασία, νύχτα, Κυριακή/Αργία και Αργία-νύχτα.
+      </p>
+      <section class="calculator-layout">
+        <form class="panel" id="calculatorForm" data-calculator="overtime">
+          <h2>Στοιχεία μισθού</h2>
+          <div class="form-grid">
+            <div class="field"><label for="gross">Μικτός μηνιαίος μισθός</label><input id="gross" type="number" min="0"
+                step="0.01" value="1100"></div>
+            <div class="field"><label for="regularHours">Συμβατικές ώρες / εβδομάδα</label><input id="regularHours"
+                type="number" min="0" step="0.5" value="40"></div>
+          </div>
+          <div class="actions"><button type="submit">Υπολογισμός</button><button class="secondary"
+              type="reset">Επαναφορά</button></div>
+        </form>
+        <aside class="panel">
+          <h2>Πίνακας ωρομισθίων</h2>
+          <div class="result-stack" id="results"></div>
+          <p class="source-box">Προσαυξήσεις βάσει του αντίστοιχου πίνακα: νύχτα +25%, Κυριακή/Αργία +75%, Αργία-νύχτα
+            +100%.</p>
+        </aside>
+      </section>
+    </main>
+  </div>
+  <script src="assets/miscalc.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+
 </html>

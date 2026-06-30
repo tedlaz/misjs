@@ -1,36 +1,66 @@
 <!doctype html>
 <html lang="el">
-  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Δώρα & άδεια | Greek Payroll Studio</title><link rel="stylesheet" href="assets/styles.css"></head>
-  <body data-page="gifts">
-    <div class="app-shell">
-      <aside class="sidebar">
-        <a class="brand" href="index.html"><span class="brand-mark">GP</span><span><strong>Greek Payroll Studio</strong><span>Υπολογιστές μισθοδοσίας</span></span></a>
-        <nav class="nav-list" aria-label="Κύρια πλοήγηση">
-          <a class="nav-link" data-page="index" href="index.html"><span class="nav-icon">⌂</span> Πίνακας</a><a class="nav-link" data-page="salary" href="salary.html"><span class="nav-icon">€</span> Μικτά σε καθαρά</a><a class="nav-link" data-page="severance" href="severance.html"><span class="nav-icon">□</span> Αποζημίωση</a><a class="nav-link" data-page="gifts" href="gifts.html"><span class="nav-icon">◇</span> Δώρα & άδεια</a><a class="nav-link" data-page="overtime" href="overtime.html"><span class="nav-icon">◷</span> Προσαυξήσεις</a><a class="nav-link" data-page="leave" href="leave.html"><span class="nav-icon">✓</span> Κανονική άδεια</a><a class="nav-link is-new" data-page="minimumSalary" href="minimum.html"><span class="nav-icon">≡</span> Κατώτατος μισθός</a>
-          <a class="nav-link is-new" data-page="minimumDaily" href="minimum-daily.html"><span class="nav-icon">▦</span> Κατώτατο ημερομίσθιο</a><a class="nav-link is-new" data-page="sickness" href="sickness.html"><span class="nav-icon">✚</span> Ασθένεια</a>
-        </nav>
-        <p class="sidebar-note">Πλήρεις περίοδοι προεπιλεγμένες, με δυνατότητα αναλογίας.</p>
-      </aside>
-      <main class="content">
-        <p class="eyebrow">Εορτές & επίδομα</p>
-        <h1>Δώρα και επίδομα άδειας</h1>
-        <p class="page-copy">Γρήγορη εκτίμηση για δώρο Χριστουγέννων, δώρο Πάσχα και επίδομα άδειας βάσει ημερών/μηνών δικαιώματος.</p>
-        <section class="calculator-layout">
-          <form class="panel" id="calculatorForm" data-calculator="gifts">
-            <h2>Στοιχεία περιόδου</h2>
-            <div class="form-grid">
-              <div class="field"><label for="gross">Μικτός μηνιαίος μισθός</label><input id="gross" type="number" min="0" step="0.01" value="1200"></div>
-              <div class="field"><label for="christmasDays">Ημέρες περιόδου Χριστουγέννων</label><input id="christmasDays" type="number" min="0" max="245" step="1" value="245"><span class="hint">Μέγιστο 245 ημέρες, 1/5 έως 31/12.</span></div>
-              <div class="field"><label for="easterDays">Ημέρες περιόδου Πάσχα</label><input id="easterDays" type="number" min="0" max="120" step="1" value="120"><span class="hint">Μέγιστο 120 ημέρες, 1/1 έως 30/4.</span></div>
-              <div class="field"><label for="leaveMonths">Μήνες για επίδομα άδειας</label><input id="leaveMonths" type="number" min="0" max="12" step="0.5" value="12"></div>
-            </div>
-            <div class="actions"><button type="submit">Υπολογισμός</button><button class="secondary" type="reset">Επαναφορά</button></div>
-          </form>
-          <aside class="panel"><h2>Αποτελέσματα</h2><div class="result-stack" id="results"></div><p class="source-box">Τα δώρα υπολογίζονται με συντελεστή 1,04166666. Τα ποσά είναι μικτά και δεν αφαιρούν εισφορές ή παρακράτηση φόρου.</p></aside>
-        </section>
-      </main>
-    </div>
-    <script src="assets/miscalc.js"></script>
-    <script src="assets/app.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Δώρα & άδεια | Greek Payroll</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body data-page="gifts">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html"><span class="brand-mark">GP</span><span><strong>Ελληνική
+            Μισθοδοσία</strong><span>Προγράμματα</span></span></a>
+      <nav class="nav-list" aria-label="Κύρια πλοήγηση">
+        <a class="nav-link" data-page="index" href="index.html"><span class="nav-icon">⌂</span> Πίνακας</a><a
+          class="nav-link" data-page="salary" href="salary.html"><span class="nav-icon">€</span> Μικτά σε καθαρά</a><a
+          class="nav-link" data-page="severance" href="severance.html"><span class="nav-icon">□</span> Αποζημίωση</a><a
+          class="nav-link" data-page="gifts" href="gifts.html"><span class="nav-icon">◇</span> Δώρα & άδεια</a><a
+          class="nav-link" data-page="overtime" href="overtime.html"><span class="nav-icon">◷</span> Προσαυξήσεις</a><a
+          class="nav-link" data-page="leave" href="leave.html"><span class="nav-icon">✓</span> Κανονική άδεια</a><a
+          class="nav-link is-new" data-page="minimumSalary" href="minimum.html"><span class="nav-icon">≡</span>
+          Κατώτατος μισθός</a>
+        <a class="nav-link is-new" data-page="minimumDaily" href="minimum-daily.html"><span class="nav-icon">▦</span>
+          Κατώτατο ημερομίσθιο</a><a class="nav-link is-new" data-page="sickness" href="sickness.html"><span
+            class="nav-icon">✚</span> Ασθένεια</a>
+      </nav>
+      <p class="sidebar-note">Πλήρεις περίοδοι προεπιλεγμένες, με δυνατότητα αναλογίας.</p>
+    </aside>
+    <main class="content">
+      <p class="eyebrow">Εορτές & επίδομα</p>
+      <h1>Δώρα και επίδομα άδειας</h1>
+      <p class="page-copy">Γρήγορη εκτίμηση για δώρο Χριστουγέννων, δώρο Πάσχα και επίδομα άδειας βάσει ημερών/μηνών
+        δικαιώματος.</p>
+      <section class="calculator-layout">
+        <form class="panel" id="calculatorForm" data-calculator="gifts">
+          <h2>Στοιχεία περιόδου</h2>
+          <div class="form-grid">
+            <div class="field"><label for="gross">Μικτός μηνιαίος μισθός</label><input id="gross" type="number" min="0"
+                step="0.01" value="1200"></div>
+            <div class="field"><label for="christmasDays">Ημέρες περιόδου Χριστουγέννων</label><input id="christmasDays"
+                type="number" min="0" max="245" step="1" value="245"><span class="hint">Μέγιστο 245 ημέρες, 1/5 έως
+                31/12.</span></div>
+            <div class="field"><label for="easterDays">Ημέρες περιόδου Πάσχα</label><input id="easterDays" type="number"
+                min="0" max="120" step="1" value="120"><span class="hint">Μέγιστο 120 ημέρες, 1/1 έως 30/4.</span></div>
+            <div class="field"><label for="leaveMonths">Μήνες για επίδομα άδειας</label><input id="leaveMonths"
+                type="number" min="0" max="12" step="0.5" value="12"></div>
+          </div>
+          <div class="actions"><button type="submit">Υπολογισμός</button><button class="secondary"
+              type="reset">Επαναφορά</button></div>
+        </form>
+        <aside class="panel">
+          <h2>Αποτελέσματα</h2>
+          <div class="result-stack" id="results"></div>
+          <p class="source-box">Τα δώρα υπολογίζονται με συντελεστή 1,04166666. Τα ποσά είναι μικτά και δεν αφαιρούν
+            εισφορές ή παρακράτηση φόρου.</p>
+        </aside>
+      </section>
+    </main>
+  </div>
+  <script src="assets/miscalc.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+
 </html>

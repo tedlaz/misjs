@@ -1,55 +1,72 @@
 <!doctype html>
 <html lang="el">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Μικτά σε καθαρά | Greek Payroll Studio</title>
-    <link rel="stylesheet" href="assets/styles.css">
-  </head>
-  <body data-page="salary">
-    <div class="app-shell">
-      <aside class="sidebar">
-        <a class="brand" href="index.html"><span class="brand-mark">GP</span><span><strong>Greek Payroll Studio</strong><span>Υπολογιστές μισθοδοσίας</span></span></a>
-        <nav class="nav-list" aria-label="Κύρια πλοήγηση">
-          <a class="nav-link" data-page="index" href="index.html"><span class="nav-icon">⌂</span> Πίνακας</a>
-          <a class="nav-link" data-page="salary" href="salary.html"><span class="nav-icon">€</span> Μικτά σε καθαρά</a>
-          <a class="nav-link" data-page="severance" href="severance.html"><span class="nav-icon">□</span> Αποζημίωση</a>
-          <a class="nav-link" data-page="gifts" href="gifts.html"><span class="nav-icon">◇</span> Δώρα & άδεια</a>
-          <a class="nav-link" data-page="overtime" href="overtime.html"><span class="nav-icon">◷</span> Προσαυξήσεις</a>
-          <a class="nav-link" data-page="leave" href="leave.html"><span class="nav-icon">✓</span> Κανονική άδεια</a>
-          <a class="nav-link is-new" data-page="minimumSalary" href="minimum.html"><span class="nav-icon">≡</span> Κατώτατος μισθός</a>
-          <a class="nav-link is-new" data-page="minimumDaily" href="minimum-daily.html"><span class="nav-icon">▦</span> Κατώτατο ημερομίσθιο</a>
-          <a class="nav-link is-new" data-page="sickness" href="sickness.html"><span class="nav-icon">✚</span> Ασθένεια</a>
-        </nav>
-        <p class="sidebar-note">Οι φορολογικές κλίμακες αλλάζουν. Κράτα τους συντελεστές ορατούς και ελέγξιμους.</p>
-      </aside>
-      <main class="content">
-        <p class="eyebrow">Καθαρός μισθός</p>
-        <h1>Μικτά σε καθαρά</h1>
-        <p class="page-copy">Υπολόγισε καθαρό ποσό ανά πληρωμή, μηνιαίες εισφορές, παρακράτηση φόρου και ενδεικτικό κόστος εργοδότη.</p>
-        <section class="calculator-layout">
-          <form class="panel" id="calculatorForm" data-calculator="salary">
-            <h2>Στοιχεία μισθού</h2>
-            <div class="form-grid">
-              <div class="field"><label for="gross">Μικτός μισθός</label><input id="gross" type="number" min="0" step="0.01" value="1200"></div>
-              <div class="field"><label for="payments">Πληρωμές ανά έτος</label><input id="payments" type="number" min="1" step="1" value="14"></div>
-              <div class="field"><label for="employeeRate">Εισφορά εργαζομένου %</label><input id="employeeRate" type="number" min="0" step="0.01" value="13.37"></div>
-              <div class="field"><label for="employerRate">Εισφορά εργοδότη %</label><input id="employerRate" type="number" min="0" step="0.01" value="21.79"></div>
-              <div class="field"><label for="cap">Μηνιαίο πλαφόν εισφορών</label><input id="cap" type="number" min="0" step="0.01" value="7761.94"></div>
-              <div class="field"><label for="children">Εξαρτώμενα παιδιά</label><input id="children" type="number" min="0" step="1" value="0"></div>
-              <div class="field"><label for="age">Ηλικία</label><input id="age" type="number" min="16" step="1" value="35"></div>
-            </div>
-            <div class="actions"><button type="submit">Υπολογισμός</button><button class="secondary" type="reset">Επαναφορά</button></div>
-          </form>
-          <aside class="panel">
-            <h2>Αποτελέσματα</h2>
-            <div class="result-stack" id="results"></div>
-            <p class="source-box">Βάση: κλίμακα φόρου 2026+ από το Υπουργείο Οικονομικών και ενδεικτικές κύριες εισφορές 13,37% / 21,79% από πρόσφατη payroll αναφορά.</p>
-          </aside>
-        </section>
-      </main>
-    </div>
-    <script src="assets/miscalc.js"></script>
-    <script src="assets/app.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Μικτά σε καθαρά | Greek Payroll</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body data-page="salary">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html"><span class="brand-mark">GP</span><span><strong>Ελληνική
+            Μισθοδοσία</strong><span>Προγράμματα</span></span></a>
+      <nav class="nav-list" aria-label="Κύρια πλοήγηση">
+        <a class="nav-link" data-page="index" href="index.html"><span class="nav-icon">⌂</span> Πίνακας</a>
+        <a class="nav-link" data-page="salary" href="salary.html"><span class="nav-icon">€</span> Μικτά σε καθαρά</a>
+        <a class="nav-link" data-page="severance" href="severance.html"><span class="nav-icon">□</span> Αποζημίωση</a>
+        <a class="nav-link" data-page="gifts" href="gifts.html"><span class="nav-icon">◇</span> Δώρα & άδεια</a>
+        <a class="nav-link" data-page="overtime" href="overtime.html"><span class="nav-icon">◷</span> Προσαυξήσεις</a>
+        <a class="nav-link" data-page="leave" href="leave.html"><span class="nav-icon">✓</span> Κανονική άδεια</a>
+        <a class="nav-link is-new" data-page="minimumSalary" href="minimum.html"><span class="nav-icon">≡</span>
+          Κατώτατος μισθός</a>
+        <a class="nav-link is-new" data-page="minimumDaily" href="minimum-daily.html"><span class="nav-icon">▦</span>
+          Κατώτατο ημερομίσθιο</a>
+        <a class="nav-link is-new" data-page="sickness" href="sickness.html"><span class="nav-icon">✚</span>
+          Ασθένεια</a>
+      </nav>
+      <p class="sidebar-note">Οι φορολογικές κλίμακες αλλάζουν. Κράτα τους συντελεστές ορατούς και ελέγξιμους.</p>
+    </aside>
+    <main class="content">
+      <p class="eyebrow">Καθαρός μισθός</p>
+      <h1>Μικτά σε καθαρά</h1>
+      <p class="page-copy">Υπολόγισε καθαρό ποσό ανά πληρωμή, μηνιαίες εισφορές, παρακράτηση φόρου και ενδεικτικό κόστος
+        εργοδότη.</p>
+      <section class="calculator-layout">
+        <form class="panel" id="calculatorForm" data-calculator="salary">
+          <h2>Στοιχεία μισθού</h2>
+          <div class="form-grid">
+            <div class="field"><label for="gross">Μικτός μισθός</label><input id="gross" type="number" min="0"
+                step="0.01" value="1200"></div>
+            <div class="field"><label for="payments">Πληρωμές ανά έτος</label><input id="payments" type="number" min="1"
+                step="1" value="14"></div>
+            <div class="field"><label for="employeeRate">Εισφορά εργαζομένου %</label><input id="employeeRate"
+                type="number" min="0" step="0.01" value="13.37"></div>
+            <div class="field"><label for="employerRate">Εισφορά εργοδότη %</label><input id="employerRate"
+                type="number" min="0" step="0.01" value="21.79"></div>
+            <div class="field"><label for="cap">Μηνιαίο πλαφόν εισφορών</label><input id="cap" type="number" min="0"
+                step="0.01" value="7761.94"></div>
+            <div class="field"><label for="children">Εξαρτώμενα παιδιά</label><input id="children" type="number" min="0"
+                step="1" value="0"></div>
+            <div class="field"><label for="age">Ηλικία</label><input id="age" type="number" min="16" step="1"
+                value="35"></div>
+          </div>
+          <div class="actions"><button type="submit">Υπολογισμός</button><button class="secondary"
+              type="reset">Επαναφορά</button></div>
+        </form>
+        <aside class="panel">
+          <h2>Αποτελέσματα</h2>
+          <div class="result-stack" id="results"></div>
+          <p class="source-box">Βάση: κλίμακα φόρου 2026+ από το Υπουργείο Οικονομικών και ενδεικτικές κύριες εισφορές
+            13,37% / 21,79% από πρόσφατη payroll αναφορά.</p>
+        </aside>
+      </section>
+    </main>
+  </div>
+  <script src="assets/miscalc.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+
 </html>
