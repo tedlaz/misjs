@@ -1,36 +1,69 @@
 <!doctype html>
 <html lang="el">
-  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Κανονική άδεια | Greek Payroll Studio</title><link rel="stylesheet" href="assets/styles.css"></head>
-  <body data-page="leave">
-    <div class="app-shell">
-      <aside class="sidebar">
-        <a class="brand" href="index.html"><span class="brand-mark">GP</span><span><strong>Greek Payroll Studio</strong><span>Υπολογιστές μισθοδοσίας</span></span></a>
-        <nav class="nav-list" aria-label="Κύρια πλοήγηση">
-          <a class="nav-link" data-page="index" href="index.html"><span class="nav-icon">⌂</span> Πίνακας</a><a class="nav-link" data-page="salary" href="salary.html"><span class="nav-icon">€</span> Μικτά σε καθαρά</a><a class="nav-link" data-page="severance" href="severance.html"><span class="nav-icon">□</span> Αποζημίωση</a><a class="nav-link" data-page="gifts" href="gifts.html"><span class="nav-icon">◇</span> Δώρα & άδεια</a><a class="nav-link" data-page="overtime" href="overtime.html"><span class="nav-icon">◷</span> Προσαυξήσεις</a><a class="nav-link" data-page="leave" href="leave.html"><span class="nav-icon">✓</span> Κανονική άδεια</a><a class="nav-link is-new" data-page="minimumSalary" href="minimum.html"><span class="nav-icon">≡</span> Κατώτατος μισθός</a>
-          <a class="nav-link is-new" data-page="minimumDaily" href="minimum-daily.html"><span class="nav-icon">▦</span> Κατώτατο ημερομίσθιο</a><a class="nav-link is-new" data-page="sickness" href="sickness.html"><span class="nav-icon">✚</span> Ασθένεια</a>
-        </nav>
-        <p class="sidebar-note">Υπολογίζει ημέρες και ενδεικτική αξία άδειας.</p>
-      </aside>
-      <main class="content">
-        <p class="eyebrow">Άδεια μισθωτού</p>
-        <h1>Κανονική άδεια</h1>
-        <p class="page-copy">Υπολόγισε ετήσιο και αναλογικό δικαίωμα άδειας με βάση πενθήμερη ή εξαήμερη εργασία και προϋπηρεσία.</p>
-        <section class="calculator-layout">
-          <form class="panel" id="calculatorForm" data-calculator="leave">
-            <h2>Στοιχεία άδειας</h2>
-            <div class="form-grid">
-              <div class="field"><label for="gross">Μικτός μηνιαίος μισθός</label><input id="gross" type="number" min="0" step="0.01" value="1200"></div>
-              <div class="field"><label for="schedule">Πρόγραμμα εργασίας</label><select id="schedule"><option value="5">Πενθήμερο</option><option value="6">Εξαήμερο</option></select></div>
-              <div class="field"><label for="yearsSame">Έτη στον ίδιο εργοδότη</label><input id="yearsSame" type="number" min="0" step="0.1" value="3"></div>
-              <div class="field"><label for="yearsTotal">Προϋπηρεσία σε άλλους εργοδότες</label><input id="yearsTotal" type="number" min="0" step="0.1" value="3"></div>
-              <div class="field"><label for="monthsWorked">Μήνες εργασίας στο έτος</label><input id="monthsWorked" type="number" min="0" max="12" step="0.5" value="12"></div>
-            </div>
-            <div class="actions"><button type="submit">Υπολογισμός</button><button class="secondary" type="reset">Επαναφορά</button></div>
-          </form>
-          <aside class="panel"><h2>Αποτελέσματα</h2><div class="result-stack" id="results"></div><p class="source-box">Η αξία άδειας υπολογίζεται ενδεικτικά με ημερομίσθιο μισθός / 25.</p></aside>
-        </section>
-      </main>
-    </div>
-    <script src="assets/app.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Κανονική άδεια | Greek Payroll Studio</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body data-page="leave">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html"><span class="brand-mark">GP</span><span><strong>Greek Payroll
+            Studio</strong><span>Υπολογιστές μισθοδοσίας</span></span></a>
+      <nav class="nav-list" aria-label="Κύρια πλοήγηση">
+        <a class="nav-link" data-page="index" href="index.html"><span class="nav-icon">⌂</span> Πίνακας</a><a
+          class="nav-link" data-page="salary" href="salary.html"><span class="nav-icon">€</span> Μικτά σε καθαρά</a><a
+          class="nav-link" data-page="severance" href="severance.html"><span class="nav-icon">□</span> Αποζημίωση</a><a
+          class="nav-link" data-page="gifts" href="gifts.html"><span class="nav-icon">◇</span> Δώρα & άδεια</a><a
+          class="nav-link" data-page="overtime" href="overtime.html"><span class="nav-icon">◷</span> Προσαυξήσεις</a><a
+          class="nav-link" data-page="leave" href="leave.html"><span class="nav-icon">✓</span> Κανονική άδεια</a><a
+          class="nav-link is-new" data-page="minimumSalary" href="minimum.html"><span class="nav-icon">≡</span>
+          Κατώτατος μισθός</a>
+        <a class="nav-link is-new" data-page="minimumDaily" href="minimum-daily.html"><span class="nav-icon">▦</span>
+          Κατώτατο ημερομίσθιο</a><a class="nav-link is-new" data-page="sickness" href="sickness.html"><span
+            class="nav-icon">✚</span> Ασθένεια</a>
+      </nav>
+      <p class="sidebar-note">Υπολογίζει ημέρες και ενδεικτική αξία άδειας.</p>
+    </aside>
+    <main class="content">
+      <p class="eyebrow">Άδεια μισθωτού</p>
+      <h1>Κανονική άδεια</h1>
+      <p class="page-copy">Υπολόγισε ημέρες κανονικής άδειας, αποδοχές άδειας και επίδομα αδείας με βάση πενθήμερη ή
+        εξαήμερη εργασία και προϋπηρεσία.</p>
+      <section class="calculator-layout">
+        <form class="panel" id="calculatorForm" data-calculator="leave">
+          <h2>Στοιχεία άδειας</h2>
+          <div class="form-grid">
+            <div class="field"><label for="gross">Μικτός μηνιαίος μισθός</label><input id="gross" type="number" min="0"
+                step="0.01" value="1000"></div>
+            <div class="field"><label for="schedule">Πρόγραμμα εργασίας</label><select id="schedule">
+                <option value="5">Πενθήμερο</option>
+                <option value="6">Εξαήμερο</option>
+              </select></div>
+            <div class="field"><label for="yearsSame">Έτη στον ίδιο εργοδότη</label><input id="yearsSame" type="number"
+                min="0" step="0.1" value="0"></div>
+            <div class="field"><label for="yearsTotal">Προϋπηρεσία σε άλλους εργοδότες</label><input id="yearsTotal"
+                type="number" min="0" step="0.1" value="0"></div>
+            <div class="field"><label for="monthsWorked">Μήνες εργασίας στο έτος</label><input id="monthsWorked"
+                type="number" min="0" max="12" step="0.5" value="12"></div>
+          </div>
+          <div class="actions"><button type="submit">Υπολογισμός</button><button class="secondary"
+              type="reset">Επαναφορά</button></div>
+        </form>
+        <aside class="panel">
+          <h2>Αποτελέσματα</h2>
+          <div class="result-stack" id="results"></div>
+          <p class="source-box">Οι αποδοχές άδειας και το επίδομα αδείας υπολογίζονται με βάση τους κανόνες του έτους
+            εργασίας και ημερήσια βάση μισθός / 25 όπου χρειάζεται.</p>
+        </aside>
+      </section>
+    </main>
+  </div>
+  <script src="assets/miscalc.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+
 </html>
