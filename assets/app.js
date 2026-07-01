@@ -1,10 +1,12 @@
-const euro = new Intl.NumberFormat('el-GR', {
+const config = window.PayrollConfig
+
+const euro = new Intl.NumberFormat(config.locale.language, {
   style: 'currency',
-  currency: 'EUR',
+  currency: config.locale.currency,
   minimumFractionDigits: 2,
 })
 
-const number = new Intl.NumberFormat('el-GR', {
+const number = new Intl.NumberFormat(config.locale.language, {
   maximumFractionDigits: 2,
 })
 
@@ -43,14 +45,15 @@ function renderResults(items, notes = []) {
 }
 
 function readSalaryForm() {
+  const salaryConfig = config.salary
   return {
     gross: value('gross'),
-    payments: value('payments', 14),
-    employeeRate: value('employeeRate', 13.37) / 100,
-    employerRate: value('employerRate', 21.79) / 100,
-    cap: value('cap', 7761.94),
-    children: value('children', 0),
-    age: value('age', 35),
+    payments: value('payments', salaryConfig.defaultPayments),
+    employeeRate: value('employeeRate', salaryConfig.defaultEmployeeRate * 100) / 100,
+    employerRate: value('employerRate', salaryConfig.defaultEmployerRate * 100) / 100,
+    cap: value('cap', salaryConfig.defaultContributionCap),
+    children: value('children', salaryConfig.defaultChildren),
+    age: value('age', salaryConfig.defaultAge),
   }
 }
 
@@ -122,11 +125,12 @@ function updateSeveranceCalculator() {
 }
 
 function readGiftsForm() {
+  const giftsConfig = config.gifts
   return {
     gross: value('gross'),
-    christmasDays: value('christmasDays', 245),
-    easterDays: value('easterDays', 120),
-    leaveMonths: value('leaveMonths', 12),
+    christmasDays: value('christmasDays', giftsConfig.christmasFullDays),
+    easterDays: value('easterDays', giftsConfig.easterFullDays),
+    leaveMonths: value('leaveMonths', giftsConfig.monthsPerYear),
   }
 }
 
@@ -139,9 +143,9 @@ function updateGiftsCalculator() {
       { label: 'Δώρο Χριστουγέννων', value: euro.format(result.christmas), kind: 'total' },
     ],
     [
-      'Τα δώρα πολλαπλασιάζονται με συντελεστή 1,04166666, δηλαδή 1 + 1/24 του μισθού.',
-      'Πλήρες δώρο Χριστουγέννων θεωρείται ένας μηνιαίος μισθός για όλη την περίοδο 1/5-31/12.',
-      'Πλήρες δώρο Πάσχα υπολογίζεται εδώ ως μισός μηνιαίος μισθός. Το επίδομα άδειας εμφανίζεται χωριστά χωρίς τον συντελεστή δώρων.',
+      'Τα δώρα προσαυξάνονται με 1,04166666 (1 + 1/24 αναλογία του επιδόματος άδειας).',
+      'Διάστημα Δώρου Πάσχα 1/1-30/4.',
+      'Διάστημα Δώρου Χριστουγέννων 1/5-31/12.',
     ],
   )
 }
@@ -149,7 +153,7 @@ function updateGiftsCalculator() {
 function readOvertimeForm() {
   return {
     gross: value('gross'),
-    regularHours: value('regularHours', 40),
+    regularHours: value('regularHours', config.minimumWage.fullWeeklyHours),
   }
 }
 
@@ -201,7 +205,7 @@ function readLeaveForm() {
     schedule: q('schedule').value,
     yearsSame: value('yearsSame'),
     priorYears: value('yearsTotal'),
-    monthsWorked: value('monthsWorked', 12),
+    monthsWorked: value('monthsWorked', config.leave.monthsPerYear),
   }
 }
 
@@ -210,11 +214,15 @@ function updateLeaveCalculator() {
   renderResults(
     [
       {
+        label: 'Ημέρες κανονικής άδειας (σε ετήσια βάση)',
+        value: `${number.format(result.annualDays)} ημέρες`,
+      },
+      {
         label: 'Ημέρες κανονικής άδειας',
         value: `${number.format(result.leaveDaysDue)} ημέρες`,
         kind: 'total',
       },
-      { label: 'Πλήρες ετήσιο δικαίωμα', value: `${number.format(result.annualDays)} ημέρες` },
+
       { label: 'Αποδοχές άδειας', value: euro.format(result.leavePay), kind: 'warning' },
       { label: 'Επίδομα αδείας', value: euro.format(result.leaveAllowance), kind: 'warning' },
       { label: 'Ημερομίσθιο', value: euro.format(result.daily) },
@@ -230,9 +238,9 @@ function updateLeaveCalculator() {
 
 function readMinimumSalaryForm() {
   return {
-    hours: value('weeklyHours', 40),
+    hours: value('weeklyHours', config.minimumWage.fullWeeklyHours),
     triennials: value('triennials', 0),
-    marriageAllowance: q('marriageAllowance')?.checked ? 0.1 : 0,
+    marriageAllowance: q('marriageAllowance')?.checked ? config.minimumWage.marriageAllowanceRate : 0,
   }
 }
 
@@ -256,7 +264,7 @@ function updateMinimumSalaryCalculator() {
       { label: 'Ωρομίσθιο', value: euro.format(result.hourly) },
     ],
     [
-      'Από 1/4/2026 ο κατώτατος μισθός πλήρους απασχόλησης είναι 920,00 ευρώ και το κατώτατο ημερομίσθιο 41,09 ευρώ.',
+      `Από 1/4/${config.minimumWage.year} ο κατώτατος μισθός πλήρους απασχόλησης είναι ${euro.format(config.minimumWage.salary.base)} και το κατώτατο ημερομίσθιο ${euro.format(config.minimumWage.daily.base)}.`,
       'Για μισθωτούς εφαρμόζεται 10% ανά τριετία έως 3 τριετίες.',
       'Αν επιλεγεί, το επίδομα γάμου προστίθεται ως επιπλέον 10% πάνω στο βασικό ποσό.',
       'Τα δώρα Πάσχα και Χριστουγέννων υπολογίζονται με συντελεστή 1,04166666. Το επίδομα αδείας υπολογίζεται ως μισό μηνιαίο ποσό.',
@@ -268,10 +276,10 @@ function updateMinimumSalaryCalculator() {
 function readMinimumDailyForm() {
   return {
     triennials: value('triennials', 0),
-    weeklyHours: value('weeklyHours', 40),
-    weeklyDays: value('weeklyDays', 6),
-    paidDaysMonth: value('paidDaysMonth', 26),
-    marriageAllowance: q('marriageAllowance')?.checked ? 0.1 : 0,
+    weeklyHours: value('weeklyHours', config.minimumWage.fullWeeklyHours),
+    weeklyDays: value('weeklyDays', config.minimumWage.daily.defaultWeeklyDays),
+    paidDaysMonth: value('paidDaysMonth', config.minimumWage.daily.defaultPaidDaysMonth),
+    marriageAllowance: q('marriageAllowance')?.checked ? config.minimumWage.marriageAllowanceRate : 0,
   }
 }
 
@@ -317,18 +325,37 @@ function updateSicknessCalculator() {
   renderResults(
     [
       { label: 'Σύνολο αποδοχών ασθενείας', value: euro.format(result.totalPay), kind: 'total' },
+      {
+        label: `Μισές αποδοχές (${number.format(result.halfPayDays)} ημέρες)`,
+        value: euro.format(result.halfPayEmployer),
+      },
+      {
+        label: `Υπόλοιπες αποδοχές (${number.format(result.remainingEmployerDays)} ημέρες)`,
+        value: euro.format(result.remainingEmployerPay),
+      },
       { label: 'Καταβολή εργοδότη', value: euro.format(result.employerPay), kind: 'warning' },
-      { label: 'Επίδομα ΕΦΚΑ', value: euro.format(result.efkaPay) },
+      {
+        label: `Επίδομα ΕΦΚΑ (${number.format(result.efkaEligibleDays)} ημέρες)`,
+        value: euro.format(result.efkaPay),
+      },
       { label: 'Ημερήσιος μισθός', value: euro.format(result.daily) },
-      { label: 'Ετήσιο δικαίωμα εργοδότη', value: `${number.format(result.annualEntitlement)} ημέρες` },
-      { label: 'Υπόλοιπο δικαιώματος', value: `${number.format(result.remainingEntitlement)} ημέρες` },
+      { label: 'Ετήσια υποχρέωση εργοδότη', value: `${number.format(result.annualEntitlement)} ημέρες` },
+      {
+        label: 'Υπόλοιπο πριν την τρέχουσα ασθένεια',
+        value: `${number.format(result.remainingEntitlementBeforeSickness)} ημέρες`,
+      },
+      {
+        label: 'Υπόλοιπο υποχρέωσης εργοδότη',
+        value: `${number.format(result.remainingEntitlement)} ημέρες`,
+      },
       {
         label: 'Ημέρες χωρίς κάλυψη εργοδότη',
         value: `${number.format(result.uncoveredEmployerDays)} ημέρες`,
       },
     ],
     [
-      'Για τις πρώτες 3 ημέρες ασθένειας ο εργοδότης καταβάλλει το 1/2 του ημερήσιου μισθού, εφόσον υπάρχει υπόλοιπο ετήσιου δικαιώματος.',
+      'Για τις ημέρες που πληρώνονται μισές, ο εργοδότης καταβάλλει το 1/2 του ημερήσιου μισθού, εφόσον υπάρχει υπόλοιπο ετήσιου δικαιώματος.',
+      'Αν έχει ήδη καλυφθεί το 3ήμερο και η νέα ασθένεια είναι έως 3 ημέρες, δεν υπολογίζεται επίδομα ΕΦΚΑ και οι ημέρες εμφανίζονται στις μισές αποδοχές.',
       'Από την 4η ημέρα υπολογίζεται επίδομα ΕΦΚΑ. Ο εργοδότης καταβάλλει τη διαφορά μέχρι τον ημερήσιο μισθό για τις ημέρες που καλύπτονται από το ετήσιο δικαίωμα.',
       'Το ετήσιο δικαίωμα εργοδότη εμφανίζεται ενδεικτικά ως 12,5 ημέρες για υπηρεσία κάτω του έτους και 25 ημέρες για υπηρεσία ενός έτους και άνω.',
     ],
